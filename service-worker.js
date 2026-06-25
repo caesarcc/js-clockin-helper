@@ -1,10 +1,12 @@
 const CACHE_NAME = 'jornada-cache-v1';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/assets/icons/icon-192.png',
-  '/assets/icons/icon-512.png'
+  './',
+  './index.html',
+  './manifest.json',
+  './assets/icons/icon-48.svg',
+  './assets/icons/icon-192.svg',
+  './assets/icons/icon-256.svg',
+  './assets/icons/icon-512.svg'
 ];
 
 self.addEventListener('install', (event) => {
@@ -28,7 +30,7 @@ self.addEventListener('fetch', (event) => {
           cache.put(event.request, response.clone());
           return response;
         });
-      }).catch(() => caches.match('/index.html'));
+      }).catch(() => caches.match('./index.html'));
     })
   );
 });
